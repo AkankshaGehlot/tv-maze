@@ -1,26 +1,57 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
+import axios from 'axios';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import Reviews from './components/Reviews';
+import Shows from './components/Shows';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component{
+  
+  state = {
+    shows:[],
+    prevEpisodes: []
+  }
+
+  componentDidMount(){
+    console.log('I am in mounting phase!!');
+    axios.get('https://api.tvmaze.com/search/shows?q=friends')
+      .then( response => {
+          //mapping required data
+          const content = response.data.map( item =>{
+              return(
+                item.show
+              )
+          })
+          this.setState({
+            shows: content
+          })
+          console.log(this.state.shows);
+
+          //mapping previous episodes API's
+          const links = content.map( item =>{
+            return(
+                item._links.previousepisode || item._links.nextepisode
+            )
+          })
+          this.setState({
+            links: links
+          })
+          console.log(this.state.links);
+      })    
+  }
+
+  render(){
+    
+    return(
+      <div>
+        <Navbar />
+        <Shows shows = {this.state.shows} />
+        <Reviews />
+        <Footer />
+      </div>
+    )
+  }
 }
 
 export default App;
