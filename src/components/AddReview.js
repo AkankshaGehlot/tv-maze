@@ -19,8 +19,14 @@ class AddReview extends Component{
         let contentOfReview = this.state.title.concat(this.state.name);
         contentOfReview = contentOfReview.concat(this.state.comment);
         let emptyString = contentOfReview.replace(/ /g, "");
+        console.log(emptyString);
 
-        if(emptyString && this.state.title && this.state.name && this.state.comment){
+        //removing blank spaces to check for empty string
+        let newTitle = this.state.title.replace(/ /g, "");
+        let newName = this.state.name.replace(/ /g, "");
+        let newComment = this.state.comment.replace(/ /g, "");
+
+        if(emptyString && newTitle && newName && newComment){
             this.props.addReview(this.state);
             this.setState({
                 name:'',
