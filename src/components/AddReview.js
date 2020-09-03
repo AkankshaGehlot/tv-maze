@@ -16,12 +16,19 @@ class AddReview extends Component{
     handleSubmit = (e) =>{
         e.preventDefault();
 
-        this.props.addReview(this.state);
-        this.setState({
-            name:'',
-            title:'',
-            comment:''
-        })
+        let contentOfReview = this.state.title.concat(this.state.name);
+        contentOfReview = contentOfReview.concat(this.state.comment);
+        let emptyString = contentOfReview.replace(/ /g, "");
+
+        if(emptyString && this.state.title && this.state.name && this.state.comment){
+            this.props.addReview(this.state);
+            this.setState({
+                name:'',
+                title:'',
+                comment:''
+            })
+        }
+        
     }
 
     render(){
