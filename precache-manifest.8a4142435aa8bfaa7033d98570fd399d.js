@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "845700c8a69ffb7d8b62cdaeb3783635",
+    "revision": "937b2974f61231457ef1fc1c2a42b9ef",
     "url": "/tv-maze/index.html"
   },
   {
-    "revision": "da89597faf9e2e61f221",
+    "revision": "e5736aad59fa245253eb",
     "url": "/tv-maze/static/css/main.066a2fdb.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/tv-maze/static/js/2.384fdbce.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "da89597faf9e2e61f221",
-    "url": "/tv-maze/static/js/main.bcb1dc8b.chunk.js"
+    "revision": "e5736aad59fa245253eb",
+    "url": "/tv-maze/static/js/main.40bb2095.chunk.js"
   },
   {
     "revision": "5edb686f1231e1084c3e",
